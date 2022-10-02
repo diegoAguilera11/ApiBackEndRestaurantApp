@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PedidoSeeder extends Seeder
+class TableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

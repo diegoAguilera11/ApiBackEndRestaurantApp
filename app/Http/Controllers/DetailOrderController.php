@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DetallePedido;
-use App\Http\Requests\StoreDetallePedidoRequest;
-use App\Http\Requests\UpdateDetallePedidoRequest;
+use App\Models\DetailOrder;
+use App\Http\Requests\StoreDetailOrderRequest;
+use App\Http\Requests\UpdateDetailOrderRequest;
 
-class DetallePedidoController extends Controller
+class DetailOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class DetallePedidoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDetallePedidoRequest  $request
+     * @param  \App\Http\Requests\StoreDetailOrderRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDetallePedidoRequest $request)
+    public function store(StoreDetailOrderRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class DetallePedidoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\DetallePedido  $detallePedido
+     * @param  \App\Models\DetailOrder  $detailOrder
      * @return \Illuminate\Http\Response
      */
-    public function show(DetallePedido $detallePedido)
+    public function show(DetailOrder $detailOrder)
     {
         //
     }
@@ -53,10 +53,10 @@ class DetallePedidoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\DetallePedido  $detallePedido
+     * @param  \App\Models\DetailOrder  $detailOrder
      * @return \Illuminate\Http\Response
      */
-    public function edit(DetallePedido $detallePedido)
+    public function edit(DetailOrder $detailOrder)
     {
         //
     }
@@ -64,11 +64,11 @@ class DetallePedidoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDetallePedidoRequest  $request
-     * @param  \App\Models\DetallePedido  $detallePedido
+     * @param  \App\Http\Requests\UpdateDetailOrderRequest  $request
+     * @param  \App\Models\DetailOrder  $detailOrder
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDetallePedidoRequest $request, DetallePedido $detallePedido)
+    public function update(UpdateDetailOrderRequest $request, DetailOrder $detailOrder)
     {
         //
     }
@@ -76,10 +76,10 @@ class DetallePedidoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\DetallePedido  $detallePedido
+     * @param  \App\Models\DetailOrder  $detailOrder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DetallePedido $detallePedido)
+    public function destroy(DetailOrder $detailOrder)
     {
         //
     }

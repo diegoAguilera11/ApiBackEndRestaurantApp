@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Pedido;
+use App\Models\Table;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PedidoPolicy
+class TablePolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class PedidoPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Pedido  $pedido
+     * @param  \App\Models\Table  $table
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Pedido $pedido)
+    public function view(User $user, Table $table)
     {
         //
     }
@@ -48,10 +48,10 @@ class PedidoPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Pedido  $pedido
+     * @param  \App\Models\Table  $table
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Pedido $pedido)
+    public function update(User $user, Table $table)
     {
         //
     }
@@ -60,10 +60,10 @@ class PedidoPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Pedido  $pedido
+     * @param  \App\Models\Table  $table
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Pedido $pedido)
+    public function delete(User $user, Table $table)
     {
         //
     }
@@ -72,10 +72,10 @@ class PedidoPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Pedido  $pedido
+     * @param  \App\Models\Table  $table
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Pedido $pedido)
+    public function restore(User $user, Table $table)
     {
         //
     }
@@ -84,10 +84,10 @@ class PedidoPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Pedido  $pedido
+     * @param  \App\Models\Table  $table
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Pedido $pedido)
+    public function forceDelete(User $user, Table $table)
     {
         //
     }
