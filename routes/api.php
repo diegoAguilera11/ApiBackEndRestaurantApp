@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TableController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,5 @@ use Illuminate\Support\Facades\Route;
 Route::resource('products', ProductController::class);
 
 Route::resource('orders', OrderController::class);
+
+Route::resource('tables', TableController::class);
