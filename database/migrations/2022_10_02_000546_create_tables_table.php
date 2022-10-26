@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('tables', function (Blueprint $table) {
             $table->id('id');
-            $table->string('date', 255);
-            $table->integer('total');
-            $table->integer('status');
-            //$table->enum('statustext', ['CALCULANDO', 'ENPROCESO', 'ENTREGADO']);
-            $table->foreignid('tables_id');
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('tables');
     }
 };
