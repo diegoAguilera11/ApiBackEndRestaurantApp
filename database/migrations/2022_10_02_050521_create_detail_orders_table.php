@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('detail_orders', function (Blueprint $table) {
             $table->id();
+            $table->integer('Unit_Price');
+            $table->integer('quiantity');
+            $table->string('Productcode', 15);
+            $table->foreign('productcode')->references('code')->on('products');
+            $table->integer('Orderid');
+            $table->foreign('Orderid')->references('id')->on('orders');
             $table->timestamps();
         });
     }
