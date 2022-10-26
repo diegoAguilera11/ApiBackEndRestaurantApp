@@ -5,7 +5,10 @@ namespace Illuminate\Foundation\Console;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Symfony\Component\Console\Attribute\AsCommand;
+<<<<<<< Updated upstream
 use Symfony\Component\Console\Output\OutputInterface;
+=======
+>>>>>>> Stashed changes
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -47,6 +50,7 @@ class ViewCacheCommand extends Command
         $this->callSilent('view:clear');
 
         $this->paths()->each(function ($path) {
+<<<<<<< Updated upstream
             $prefix = $this->output->isVeryVerbose() ? '<fg=yellow;options=bold>DIR</> ' : '';
 
             $this->components->task($prefix.$path, null, OutputInterface::VERBOSITY_VERBOSE);
@@ -56,6 +60,11 @@ class ViewCacheCommand extends Command
 
         $this->newLine();
 
+=======
+            $this->compileViews($this->bladeFilesIn([$path]));
+        });
+
+>>>>>>> Stashed changes
         $this->components->info('Blade templates cached successfully.');
     }
 
@@ -70,6 +79,7 @@ class ViewCacheCommand extends Command
         $compiler = $this->laravel['view']->getEngineResolver()->resolve('blade')->getCompiler();
 
         $views->map(function (SplFileInfo $file) use ($compiler) {
+<<<<<<< Updated upstream
             $this->components->task('    '.$file->getRelativePathname(), null, OutputInterface::VERBOSITY_VERY_VERBOSE);
 
             $compiler->compile($file->getRealPath());
@@ -78,6 +88,10 @@ class ViewCacheCommand extends Command
         if ($this->output->isVeryVerbose()) {
             $this->newLine();
         }
+=======
+            $compiler->compile($file->getRealPath());
+        });
+>>>>>>> Stashed changes
     }
 
     /**

@@ -9,8 +9,13 @@ interface WriterInterface
     /**
      * Write to an environment variable, if possible.
      *
+<<<<<<< Updated upstream
      * @param non-empty-string $name
      * @param string           $value
+=======
+     * @param string $name
+     * @param string $value
+>>>>>>> Stashed changes
      *
      * @return bool
      */
@@ -19,7 +24,11 @@ interface WriterInterface
     /**
      * Delete an environment variable, if possible.
      *
+<<<<<<< Updated upstream
      * @param non-empty-string $name
+=======
+     * @param string $name
+>>>>>>> Stashed changes
      *
      * @return bool
      */

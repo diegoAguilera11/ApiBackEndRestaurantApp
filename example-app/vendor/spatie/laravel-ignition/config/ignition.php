@@ -3,10 +3,13 @@
 use Spatie\Ignition\Solutions\SolutionProviders\BadMethodCallSolutionProvider;
 use Spatie\Ignition\Solutions\SolutionProviders\MergeConflictSolutionProvider;
 use Spatie\Ignition\Solutions\SolutionProviders\UndefinedPropertySolutionProvider;
+<<<<<<< Updated upstream
 use Spatie\LaravelIgnition\Recorders\DumpRecorder\DumpRecorder;
 use Spatie\LaravelIgnition\Recorders\JobRecorder\JobRecorder;
 use Spatie\LaravelIgnition\Recorders\LogRecorder\LogRecorder;
 use Spatie\LaravelIgnition\Recorders\QueryRecorder\QueryRecorder;
+=======
+>>>>>>> Stashed changes
 use Spatie\LaravelIgnition\Solutions\SolutionProviders\DefaultDbNameSolutionProvider;
 use Spatie\LaravelIgnition\Solutions\SolutionProviders\GenericLaravelExceptionSolutionProvider;
 use Spatie\LaravelIgnition\Solutions\SolutionProviders\IncorrectValetDbCredentialsSolutionProvider;
@@ -215,6 +218,7 @@ return [
 
     'settings_file_path' => '',
 
+<<<<<<< Updated upstream
     /*
     |--------------------------------------------------------------------------
     | Recorders
@@ -231,4 +235,6 @@ return [
         LogRecorder::class,
         QueryRecorder::class
     ]
+=======
+>>>>>>> Stashed changes
 ];

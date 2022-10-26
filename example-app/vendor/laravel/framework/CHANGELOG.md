@@ -1,5 +1,6 @@
 # Release Notes for 9.x
 
+<<<<<<< Updated upstream
 ## [Unreleased](https://github.com/laravel/framework/compare/v9.36.1...9.x)
 
 
@@ -60,6 +61,9 @@
 - return only on non empty response from channels ([09d53ee](https://github.com/laravel/framework/commit/09d53eea674db7daa8bb65aa8fa7f2ca95e62b8d), [3944a3e](https://github.com/laravel/framework/commit/3944a3e34fe860633c77b574bbfbbcdabcf7d1e7))
 - Correct channel matching ([#44531](https://github.com/laravel/framework/pull/44531))
 - Migrate mail components ([#44527](https://github.com/laravel/framework/pull/44527))
+=======
+## [Unreleased](https://github.com/laravel/framework/compare/v9.34.0...9.x)
+>>>>>>> Stashed changes
 
 
 ## [v9.34.0](https://github.com/laravel/framework/compare/v9.33.0...v9.34.0) - 2022-10-04

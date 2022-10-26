@@ -46,9 +46,13 @@ class ImplicitRouteBinding
                         ? 'resolveSoftDeletableRouteBinding'
                         : 'resolveRouteBinding';
 
+<<<<<<< Updated upstream
             if ($parent instanceof UrlRoutable &&
                 ! $route->preventsScopedBindings() &&
                 ($route->enforcesScopedBindings() || array_key_exists($parameterName, $route->bindingFields()))) {
+=======
+            if ($parent instanceof UrlRoutable && ($route->enforcesScopedBindings() || array_key_exists($parameterName, $route->bindingFields()))) {
+>>>>>>> Stashed changes
                 $childRouteBindingMethod = $route->allowsTrashedBindings() && in_array(SoftDeletes::class, class_uses_recursive($instance))
                             ? 'resolveSoftDeletableChildRouteBinding'
                             : 'resolveChildRouteBinding';

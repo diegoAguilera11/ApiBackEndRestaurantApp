@@ -22,7 +22,10 @@ namespace Illuminate\Support\Facades;
  * @method static array getColumnListing(string $table)
  * @method static string getColumnType(string $table, string $column)
  * @method static void morphUsingUuids()
+<<<<<<< Updated upstream
  * @method static void morphUsingUlids()
+=======
+>>>>>>> Stashed changes
  * @method static \Illuminate\Database\Connection getConnection()
  * @method static \Illuminate\Database\Schema\Builder setConnection(\Illuminate\Database\Connection $connection)
  *

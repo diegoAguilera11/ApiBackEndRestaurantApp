@@ -30,7 +30,11 @@ final class MultiReader implements ReaderInterface
     /**
      * Read an environment variable, if it exists.
      *
+<<<<<<< Updated upstream
      * @param non-empty-string $name
+=======
+     * @param string $name
+>>>>>>> Stashed changes
      *
      * @return \PhpOption\Option<string>
      */

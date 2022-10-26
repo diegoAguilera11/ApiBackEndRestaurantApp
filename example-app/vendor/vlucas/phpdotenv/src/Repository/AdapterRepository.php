@@ -6,7 +6,10 @@ namespace Dotenv\Repository;
 
 use Dotenv\Repository\Adapter\ReaderInterface;
 use Dotenv\Repository\Adapter\WriterInterface;
+<<<<<<< Updated upstream
 use InvalidArgumentException;
+=======
+>>>>>>> Stashed changes
 
 final class AdapterRepository implements RepositoryInterface
 {
@@ -47,7 +50,11 @@ final class AdapterRepository implements RepositoryInterface
      */
     public function has(string $name)
     {
+<<<<<<< Updated upstream
         return '' !== $name && $this->reader->read($name)->isDefined();
+=======
+        return $this->reader->read($name)->isDefined();
+>>>>>>> Stashed changes
     }
 
     /**
@@ -55,16 +62,22 @@ final class AdapterRepository implements RepositoryInterface
      *
      * @param string $name
      *
+<<<<<<< Updated upstream
      * @throws \InvalidArgumentException
      *
+=======
+>>>>>>> Stashed changes
      * @return string|null
      */
     public function get(string $name)
     {
+<<<<<<< Updated upstream
         if ('' === $name) {
             throw new InvalidArgumentException('Expected name to be a non-empty string.');
         }
 
+=======
+>>>>>>> Stashed changes
         return $this->reader->read($name)->getOrElse(null);
     }
 
@@ -74,16 +87,22 @@ final class AdapterRepository implements RepositoryInterface
      * @param string $name
      * @param string $value
      *
+<<<<<<< Updated upstream
      * @throws \InvalidArgumentException
      *
+=======
+>>>>>>> Stashed changes
      * @return bool
      */
     public function set(string $name, string $value)
     {
+<<<<<<< Updated upstream
         if ('' === $name) {
             throw new InvalidArgumentException('Expected name to be a non-empty string.');
         }
 
+=======
+>>>>>>> Stashed changes
         return $this->writer->write($name, $value);
     }
 
@@ -92,16 +111,22 @@ final class AdapterRepository implements RepositoryInterface
      *
      * @param string $name
      *
+<<<<<<< Updated upstream
      * @throws \InvalidArgumentException
      *
+=======
+>>>>>>> Stashed changes
      * @return bool
      */
     public function clear(string $name)
     {
+<<<<<<< Updated upstream
         if ('' === $name) {
             throw new InvalidArgumentException('Expected name to be a non-empty string.');
         }
 
+=======
+>>>>>>> Stashed changes
         return $this->writer->delete($name);
     }
 }

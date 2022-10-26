@@ -155,7 +155,11 @@ class ShowModelCommand extends DatabaseInspectionCommand
                     || $method->getDeclaringClass()->getName() !== get_class($model)
             )
             ->mapWithKeys(function (ReflectionMethod $method) use ($model) {
+<<<<<<< Updated upstream
                 if (preg_match('/^get(.+)Attribute$/', $method->getName(), $matches) === 1) {
+=======
+                if (preg_match('/^get(.*)Attribute$/', $method->getName(), $matches) === 1) {
+>>>>>>> Stashed changes
                     return [Str::snake($matches[1]) => 'accessor'];
                 } elseif ($model->hasAttributeMutator($method->getName())) {
                     return [Str::snake($method->getName()) => 'attribute'];
@@ -356,7 +360,10 @@ class ShowModelCommand extends DatabaseInspectionCommand
     protected function getCastsWithDates($model)
     {
         return collect($model->getDates())
+<<<<<<< Updated upstream
             ->filter()
+=======
+>>>>>>> Stashed changes
             ->flip()
             ->map(fn () => 'datetime')
             ->merge($model->getCasts());

@@ -33,7 +33,11 @@ final class EnvConstAdapter implements AdapterInterface
     /**
      * Read an environment variable, if it exists.
      *
+<<<<<<< Updated upstream
      * @param non-empty-string $name
+=======
+     * @param string $name
+>>>>>>> Stashed changes
      *
      * @return \PhpOption\Option<string>
      */
@@ -41,9 +45,12 @@ final class EnvConstAdapter implements AdapterInterface
     {
         /** @var \PhpOption\Option<string> */
         return Option::fromArraysValue($_ENV, $name)
+<<<<<<< Updated upstream
             ->filter(static function ($value) {
                 return \is_scalar($value);
             })
+=======
+>>>>>>> Stashed changes
             ->map(static function ($value) {
                 if ($value === false) {
                     return 'false';
@@ -53,16 +60,27 @@ final class EnvConstAdapter implements AdapterInterface
                     return 'true';
                 }
 
+<<<<<<< Updated upstream
                 /** @psalm-suppress PossiblyInvalidCast */
                 return (string) $value;
+=======
+                return $value;
+            })->filter(static function ($value) {
+                return \is_string($value);
+>>>>>>> Stashed changes
             });
     }
 
     /**
      * Write to an environment variable, if possible.
      *
+<<<<<<< Updated upstream
      * @param non-empty-string $name
      * @param string           $value
+=======
+     * @param string $name
+     * @param string $value
+>>>>>>> Stashed changes
      *
      * @return bool
      */
@@ -76,7 +94,11 @@ final class EnvConstAdapter implements AdapterInterface
     /**
      * Delete an environment variable, if possible.
      *
+<<<<<<< Updated upstream
      * @param non-empty-string $name
+=======
+     * @param string $name
+>>>>>>> Stashed changes
      *
      * @return bool
      */

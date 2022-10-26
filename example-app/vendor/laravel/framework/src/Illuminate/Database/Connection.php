@@ -13,7 +13,10 @@ use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Database\Events\StatementPrepared;
 use Illuminate\Database\Events\TransactionBeginning;
 use Illuminate\Database\Events\TransactionCommitted;
+<<<<<<< Updated upstream
 use Illuminate\Database\Events\TransactionCommitting;
+=======
+>>>>>>> Stashed changes
 use Illuminate\Database\Events\TransactionRolledBack;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\Query\Expression;
@@ -979,7 +982,10 @@ class Connection implements ConnectionInterface
         return $this->events?->dispatch(match ($event) {
             'beganTransaction' => new TransactionBeginning($this),
             'committed' => new TransactionCommitted($this),
+<<<<<<< Updated upstream
             'committing' => new TransactionCommitting($this),
+=======
+>>>>>>> Stashed changes
             'rollingBack' => new TransactionRolledBack($this),
             default => null,
         });

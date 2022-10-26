@@ -182,6 +182,7 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     protected static $modelsShouldPreventSilentlyDiscardingAttributes = false;
 
     /**
+<<<<<<< Updated upstream
      * The callback that is responsible for handling discarded attribute violations.
      *
      * @var callable|null
@@ -189,6 +190,8 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     protected static $discardedAttributeViolationCallback;
 
     /**
+=======
+>>>>>>> Stashed changes
      * Indicates if an exception should be thrown when trying to access a missing attribute on a retrieved model.
      *
      * @var bool
@@ -196,6 +199,7 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     protected static $modelsShouldPreventAccessingMissingAttributes = false;
 
     /**
+<<<<<<< Updated upstream
      * The callback that is responsible for handling missing attribute violations.
      *
      * @var callable|null
@@ -203,6 +207,8 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     protected static $missingAttributeViolationCallback;
 
     /**
+=======
+>>>>>>> Stashed changes
      * Indicates if broadcasting is currently enabled.
      *
      * @var bool
@@ -406,9 +412,19 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
      */
     public static function shouldBeStrict(bool $shouldBeStrict = true)
     {
+<<<<<<< Updated upstream
         static::preventLazyLoading($shouldBeStrict);
         static::preventSilentlyDiscardingAttributes($shouldBeStrict);
         static::preventAccessingMissingAttributes($shouldBeStrict);
+=======
+        if (! $shouldBeStrict) {
+            return;
+        }
+
+        static::preventLazyLoading();
+        static::preventSilentlyDiscardingAttributes();
+        static::preventAccessingMissingAttributes();
+>>>>>>> Stashed changes
     }
 
     /**
@@ -445,6 +461,7 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     }
 
     /**
+<<<<<<< Updated upstream
      * Register a callback that is responsible for handling discarded attribute violations.
      *
      * @param  callable|null  $callback
@@ -456,6 +473,8 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Prevent accessing missing attributes on retrieved models.
      *
      * @param  bool  $value
@@ -467,6 +486,7 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     }
 
     /**
+<<<<<<< Updated upstream
      * Register a callback that is responsible for handling lazy loading violations.
      *
      * @param  callable|null  $callback
@@ -478,6 +498,8 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Execute a callback without broadcasting any model events for all model types.
      *
      * @param  callable  $callback
@@ -517,6 +539,7 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
             if ($this->isFillable($key)) {
                 $this->setAttribute($key, $value);
             } elseif ($totallyGuarded || static::preventsSilentlyDiscardingAttributes()) {
+<<<<<<< Updated upstream
                 if (isset(static::$discardedAttributeViolationCallback)) {
                     call_user_func(static::$discardedAttributeViolationCallback, $this, [$key]);
                 } else {
@@ -525,11 +548,18 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
                         $key, get_class($this)
                     ));
                 }
+=======
+                throw new MassAssignmentException(sprintf(
+                    'Add [%s] to fillable property to allow mass assignment on [%s].',
+                    $key, get_class($this)
+                ));
+>>>>>>> Stashed changes
             }
         }
 
         if (count($attributes) !== count($fillable) &&
             static::preventsSilentlyDiscardingAttributes()) {
+<<<<<<< Updated upstream
             $keys = array_diff(array_keys($attributes), array_keys($fillable));
 
             if (isset(static::$discardedAttributeViolationCallback)) {
@@ -541,6 +571,13 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
                     get_class($this)
                 ));
             }
+=======
+            throw new MassAssignmentException(sprintf(
+                'Add fillable property [%s] to allow mass assignment on [%s].',
+                implode(', ', array_diff(array_keys($attributes), array_keys($fillable))),
+                get_class($this)
+            ));
+>>>>>>> Stashed changes
         }
 
         return $this;
@@ -1071,7 +1108,11 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
         // us to recurse into all of these nested relations for the model instance.
         foreach ($this->relations as $models) {
             $models = $models instanceof Collection
+<<<<<<< Updated upstream
                 ? $models->all() : [$models];
+=======
+                        ? $models->all() : [$models];
+>>>>>>> Stashed changes
 
             foreach (array_filter($models) as $model) {
                 if (! $model->push()) {
@@ -1118,7 +1159,11 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
         // clause to only update this model. Otherwise, we'll just insert them.
         if ($this->exists) {
             $saved = $this->isDirty() ?
+<<<<<<< Updated upstream
                 $this->performUpdate($query) : true;
+=======
+                        $this->performUpdate($query) : true;
+>>>>>>> Stashed changes
         }
 
         // If the model is brand new, we'll insert it into our database and set the
@@ -1520,8 +1565,13 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     public function newQueryWithoutScopes()
     {
         return $this->newModelQuery()
+<<<<<<< Updated upstream
             ->with($this->with)
             ->withCount($this->withCount);
+=======
+                    ->with($this->with)
+                    ->withCount($this->withCount);
+>>>>>>> Stashed changes
     }
 
     /**
@@ -1544,8 +1594,13 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     public function newQueryForRestoration($ids)
     {
         return is_array($ids)
+<<<<<<< Updated upstream
             ? $this->newQueryWithoutScopes()->whereIn($this->getQualifiedKeyName(), $ids)
             : $this->newQueryWithoutScopes()->whereKey($ids);
+=======
+                ? $this->newQueryWithoutScopes()->whereIn($this->getQualifiedKeyName(), $ids)
+                : $this->newQueryWithoutScopes()->whereKey($ids);
+>>>>>>> Stashed changes
     }
 
     /**
@@ -1593,7 +1648,11 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     public function newPivot(self $parent, array $attributes, $table, $exists, $using = null)
     {
         return $using ? $using::fromRawAttributes($parent, $attributes, $table, $exists)
+<<<<<<< Updated upstream
             : Pivot::fromAttributes($parent, $attributes, $table, $exists);
+=======
+                      : Pivot::fromAttributes($parent, $attributes, $table, $exists);
+>>>>>>> Stashed changes
     }
 
     /**
@@ -1671,9 +1730,15 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
         }
 
         return $this->setKeysForSelectQuery($this->newQueryWithoutScopes())
+<<<<<<< Updated upstream
             ->useWritePdo()
             ->with(is_string($with) ? func_get_args() : $with)
             ->first();
+=======
+                        ->useWritePdo()
+                        ->with(is_string($with) ? func_get_args() : $with)
+                        ->first();
+>>>>>>> Stashed changes
     }
 
     /**
@@ -1751,9 +1816,15 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     public function is($model)
     {
         return ! is_null($model) &&
+<<<<<<< Updated upstream
             $this->getKey() === $model->getKey() &&
             $this->getTable() === $model->getTable() &&
             $this->getConnectionName() === $model->getConnectionName();
+=======
+               $this->getKey() === $model->getKey() &&
+               $this->getTable() === $model->getTable() &&
+               $this->getConnectionName() === $model->getConnectionName();
+>>>>>>> Stashed changes
     }
 
     /**
@@ -2096,8 +2167,13 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
         }
 
         return $relationship instanceof Model
+<<<<<<< Updated upstream
             ? $relationship->resolveRouteBindingQuery($relationship, $value, $field)
             : $relationship->getRelated()->resolveRouteBindingQuery($relationship, $value, $field);
+=======
+                ? $relationship->resolveRouteBindingQuery($relationship, $value, $field)
+                : $relationship->getRelated()->resolveRouteBindingQuery($relationship, $value, $field);
+>>>>>>> Stashed changes
     }
 
     /**
@@ -2238,11 +2314,15 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
      */
     public function offsetExists($offset): bool
     {
+<<<<<<< Updated upstream
         try {
             return ! is_null($this->getAttribute($offset));
         } catch (MissingAttributeException) {
             return false;
         }
+=======
+        return ! is_null($this->getAttribute($offset));
+>>>>>>> Stashed changes
     }
 
     /**
@@ -2341,8 +2421,13 @@ abstract class Model implements Arrayable, ArrayAccess, CanBeEscapedWhenCastToSt
     public function __toString()
     {
         return $this->escapeWhenCastingToString
+<<<<<<< Updated upstream
             ? e($this->toJson())
             : $this->toJson();
+=======
+                    ? e($this->toJson())
+                    : $this->toJson();
+>>>>>>> Stashed changes
     }
 
     /**

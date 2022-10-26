@@ -380,6 +380,7 @@ of the header. When a parameter does not contain a value, but just
 contains a key, this function will inject a key with a '' string value.
 
 
+<<<<<<< Updated upstream
 ## `GuzzleHttp\Psr7\Header::splitList`
 
 `public static function splitList(string|string[] $header): string[]`
@@ -402,6 +403,12 @@ Example headers include `accept`, `cache-control` and `if-none-match`.
 which performs the same operation with a cleaned up API and improved
 documentation.
 
+=======
+## `GuzzleHttp\Psr7\Header::normalize`
+
+`public static function normalize(string|array $header): array`
+
+>>>>>>> Stashed changes
 Converts an array of header values that may contain comma separated
 headers into an array of headers with no comma separated values.
 

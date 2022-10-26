@@ -63,6 +63,7 @@ class Vite implements Htmlable
     protected $styleTagAttributesResolvers = [];
 
     /**
+<<<<<<< Updated upstream
      * The preload tag attributes resolvers.
      *
      * @var array
@@ -77,6 +78,8 @@ class Vite implements Htmlable
     protected $preloadedAssets = [];
 
     /**
+=======
+>>>>>>> Stashed changes
      * The cached manifest files.
      *
      * @var array
@@ -84,6 +87,7 @@ class Vite implements Htmlable
     protected static $manifests = [];
 
     /**
+<<<<<<< Updated upstream
      * Get the preloaded assets.
      *
      * @var array
@@ -94,6 +98,8 @@ class Vite implements Htmlable
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Get the Content Security Policy nonce applied to all generated tags.
      *
      * @return string|null
@@ -211,6 +217,7 @@ class Vite implements Htmlable
     }
 
     /**
+<<<<<<< Updated upstream
      * Use the given callback to resolve attributes for preload tags.
      *
      * @param  (callable(string, string, ?array, ?array): array)|array  $attributes
@@ -228,6 +235,8 @@ class Vite implements Htmlable
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Generate Vite tags for an entrypoint.
      *
      * @param  string|string[]  $entrypoints
@@ -253,11 +262,15 @@ class Vite implements Htmlable
         $manifest = $this->manifest($buildDirectory);
 
         $tags = collect();
+<<<<<<< Updated upstream
         $preloads = collect();
+=======
+>>>>>>> Stashed changes
 
         foreach ($entrypoints as $entrypoint) {
             $chunk = $this->chunk($manifest, $entrypoint);
 
+<<<<<<< Updated upstream
             $preloads->push([
                 $chunk['src'],
                 $this->assetPath("{$buildDirectory}/{$chunk['file']}"),
@@ -283,6 +296,12 @@ class Vite implements Htmlable
                         $manifest,
                     ]);
 
+=======
+            foreach ($chunk['imports'] ?? [] as $import) {
+                foreach ($manifest[$import]['css'] ?? [] as $css) {
+                    $partialManifest = Collection::make($manifest)->where('file', $css);
+
+>>>>>>> Stashed changes
                     $tags->push($this->makeTagForChunk(
                         $partialManifest->keys()->first(),
                         $this->assetPath("{$buildDirectory}/{$css}"),
@@ -302,6 +321,7 @@ class Vite implements Htmlable
             foreach ($chunk['css'] ?? [] as $css) {
                 $partialManifest = Collection::make($manifest)->where('file', $css);
 
+<<<<<<< Updated upstream
                 $preloads->push([
                     $partialManifest->keys()->first(),
                     $this->assetPath("{$buildDirectory}/{$css}"),
@@ -309,6 +329,8 @@ class Vite implements Htmlable
                     $manifest,
                 ]);
 
+=======
+>>>>>>> Stashed changes
                 $tags->push($this->makeTagForChunk(
                     $partialManifest->keys()->first(),
                     $this->assetPath("{$buildDirectory}/{$css}"),
@@ -320,10 +342,14 @@ class Vite implements Htmlable
 
         [$stylesheets, $scripts] = $tags->partition(fn ($tag) => str_starts_with($tag, '<link'));
 
+<<<<<<< Updated upstream
         $preloads = $preloads->sortByDesc(fn ($args) => $this->isCssPath($args[1]))
             ->map(fn ($args) => $this->makePreloadTagForChunk(...$args));
 
         return new HtmlString($preloads->join('').$stylesheets->join('').$scripts->join(''));
+=======
+        return new HtmlString($stylesheets->join('').$scripts->join(''));
+>>>>>>> Stashed changes
     }
 
     /**
@@ -360,6 +386,7 @@ class Vite implements Htmlable
     }
 
     /**
+<<<<<<< Updated upstream
      * Make a preload tag for the given chunk.
      *
      * @param  string  $src
@@ -380,6 +407,8 @@ class Vite implements Htmlable
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Resolve the attributes for the chunks generated script tag.
      *
      * @param  string  $src
@@ -424,6 +453,7 @@ class Vite implements Htmlable
     }
 
     /**
+<<<<<<< Updated upstream
      * Resolve the attributes for the chunks generated preload tag.
      *
      * @param  string  $src
@@ -455,6 +485,8 @@ class Vite implements Htmlable
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Generate an appropriate tag for the given URL in HMR mode.
      *
      * @deprecated Will be removed in a future Laravel version.

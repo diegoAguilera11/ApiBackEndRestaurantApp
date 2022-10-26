@@ -26,7 +26,10 @@ use InvalidArgumentException;
  * @method \Illuminate\Routing\RouteRegistrar scopeBindings()
  * @method \Illuminate\Routing\RouteRegistrar where(array $where)
  * @method \Illuminate\Routing\RouteRegistrar withoutMiddleware(array|string $middleware)
+<<<<<<< Updated upstream
  * @method \Illuminate\Routing\RouteRegistrar withoutScopedBindings()
+=======
+>>>>>>> Stashed changes
  */
 class RouteRegistrar
 {

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace League\Flysystem;
 
+<<<<<<< Updated upstream
 use DateTimeInterface;
 use Generator;
 use League\Flysystem\UrlGeneration\ShardedPrefixPublicUrlGenerator;
@@ -23,19 +24,38 @@ class Filesystem implements FilesystemOperator
     private PathNormalizer $pathNormalizer;
     private ?PublicUrlGenerator $publicUrlGenerator;
     private ?TemporaryUrlGenerator $temporaryUrlGenerator;
+=======
+use Generator;
+use League\Flysystem\UrlGeneration\PrefixPublicUrlGenerator;
+use League\Flysystem\UrlGeneration\PublicUrlGenerator;
+use Throwable;
+
+class Filesystem implements FilesystemOperator
+{
+    private FilesystemAdapter $adapter;
+    private Config $config;
+    private PathNormalizer $pathNormalizer;
+    private PublicUrlGenerator $publicUrlGenerator;
+>>>>>>> Stashed changes
 
     public function __construct(
         FilesystemAdapter $adapter,
         array $config = [],
         PathNormalizer $pathNormalizer = null,
+<<<<<<< Updated upstream
         PublicUrlGenerator $publicUrlGenerator = null,
         TemporaryUrlGenerator $temporaryUrlGenerator = null,
+=======
+>>>>>>> Stashed changes
     ) {
         $this->adapter = $adapter;
         $this->config = new Config($config);
         $this->pathNormalizer = $pathNormalizer ?: new WhitespacePathNormalizer();
+<<<<<<< Updated upstream
         $this->publicUrlGenerator = $publicUrlGenerator;
         $this->temporaryUrlGenerator = $temporaryUrlGenerator;
+=======
+>>>>>>> Stashed changes
     }
 
     public function fileExists(string $location): bool
@@ -175,6 +195,7 @@ class Filesystem implements FilesystemOperator
         return $this->publicUrlGenerator->publicUrl($path, $config);
     }
 
+<<<<<<< Updated upstream
     public function temporaryUrl(string $path, DateTimeInterface $expiresAt, array $config = []): string
     {
         $generator = $this->temporaryUrlGenerator ?: $this->adapter;
@@ -208,6 +229,12 @@ class Filesystem implements FilesystemOperator
                 is_array($publicUrl) => new ShardedPrefixPublicUrlGenerator($publicUrl),
                 default => new PrefixPublicUrlGenerator($publicUrl),
             };
+=======
+    private function resolvePublicUrlGenerator(): ?PublicUrlGenerator
+    {
+        if ($publicUrl = $this->config->get('public_url')) {
+            return new PrefixPublicUrlGenerator($publicUrl);
+>>>>>>> Stashed changes
         }
 
         if ($this->adapter instanceof PublicUrlGenerator) {

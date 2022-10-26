@@ -416,6 +416,7 @@ final class Styles
     {
         $this->textModifiers[__METHOD__] = function ($text, $styles) use ($limit, $end): string {
             $width = $styles['width'] ?? 0;
+<<<<<<< Updated upstream
 
             if (is_string($width)) {
                 $width = self::calcWidthFromFraction(
@@ -425,6 +426,8 @@ final class Styles
                 );
             }
 
+=======
+>>>>>>> Stashed changes
             [, $paddingRight, , $paddingLeft] = $this->getPaddings();
             $width -= $paddingRight + $paddingLeft;
 

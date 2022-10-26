@@ -37,7 +37,11 @@ class Benchmark
      *
      * @param  \Closure|array  $benchmarkables
      * @param  int  $iterations
+<<<<<<< Updated upstream
      * @return never
+=======
+     * @return void
+>>>>>>> Stashed changes
      */
     public static function dd(Closure|array $benchmarkables, int $iterations = 1): void
     {

@@ -4,10 +4,20 @@ declare(strict_types=1);
 
 namespace League\Flysystem\Local;
 
+<<<<<<< Updated upstream
 use DirectoryIterator;
 use FilesystemIterator;
 use Generator;
 use League\Flysystem\ChecksumProvider;
+=======
+use League\Flysystem\FilesystemException;
+use Throwable;
+use const DIRECTORY_SEPARATOR;
+use const LOCK_EX;
+use DirectoryIterator;
+use FilesystemIterator;
+use Generator;
+>>>>>>> Stashed changes
 use League\Flysystem\Config;
 use League\Flysystem\DirectoryAttributes;
 use League\Flysystem\FileAttributes;
@@ -19,7 +29,10 @@ use League\Flysystem\UnableToCreateDirectory;
 use League\Flysystem\UnableToDeleteDirectory;
 use League\Flysystem\UnableToDeleteFile;
 use League\Flysystem\UnableToMoveFile;
+<<<<<<< Updated upstream
 use League\Flysystem\UnableToProvideChecksum;
+=======
+>>>>>>> Stashed changes
 use League\Flysystem\UnableToReadFile;
 use League\Flysystem\UnableToRetrieveMetadata;
 use League\Flysystem\UnableToSetVisibility;
@@ -38,15 +51,23 @@ use function error_clear_last;
 use function error_get_last;
 use function file_exists;
 use function file_put_contents;
+<<<<<<< Updated upstream
 use function hash_file;
+=======
+>>>>>>> Stashed changes
 use function is_dir;
 use function is_file;
 use function mkdir;
 use function rename;
+<<<<<<< Updated upstream
 use const DIRECTORY_SEPARATOR;
 use const LOCK_EX;
 
 class LocalFilesystemAdapter implements FilesystemAdapter, ChecksumProvider
+=======
+
+class LocalFilesystemAdapter implements FilesystemAdapter
+>>>>>>> Stashed changes
 {
     /**
      * @var int
@@ -442,6 +463,7 @@ class LocalFilesystemAdapter implements FilesystemAdapter, ChecksumProvider
         throw UnableToRetrieveMetadata::fileSize($path, error_get_last()['message'] ?? '');
     }
 
+<<<<<<< Updated upstream
     public function checksum(string $path, Config $config): string
     {
         $algo = $config->get('checksum_algo', 'md5');
@@ -456,6 +478,8 @@ class LocalFilesystemAdapter implements FilesystemAdapter, ChecksumProvider
         return $checksum;
     }
 
+=======
+>>>>>>> Stashed changes
     private function listDirectory(string $location): Generator
     {
         $iterator = new DirectoryIterator($location);

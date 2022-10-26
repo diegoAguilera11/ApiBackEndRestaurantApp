@@ -22,10 +22,13 @@ class ViewServiceProvider extends ServiceProvider
         $this->registerViewFinder();
         $this->registerBladeCompiler();
         $this->registerEngineResolver();
+<<<<<<< Updated upstream
 
         $this->app->terminating(static function () {
             Component::flushCache();
         });
+=======
+>>>>>>> Stashed changes
     }
 
     /**
@@ -52,10 +55,13 @@ class ViewServiceProvider extends ServiceProvider
 
             $factory->share('app', $app);
 
+<<<<<<< Updated upstream
             $app->terminating(static function () {
                 Component::forgetFactory();
             });
 
+=======
+>>>>>>> Stashed changes
             return $factory;
         });
     }
@@ -161,6 +167,7 @@ class ViewServiceProvider extends ServiceProvider
     public function registerBladeEngine($resolver)
     {
         $resolver->register('blade', function () {
+<<<<<<< Updated upstream
             $compiler = new CompilerEngine($this->app['blade.compiler'], $this->app['files']);
 
             $this->app->terminating(static function () use ($compiler) {
@@ -168,6 +175,9 @@ class ViewServiceProvider extends ServiceProvider
             });
 
             return $compiler;
+=======
+            return new CompilerEngine($this->app['blade.compiler'], $this->app['files']);
+>>>>>>> Stashed changes
         });
     }
 }

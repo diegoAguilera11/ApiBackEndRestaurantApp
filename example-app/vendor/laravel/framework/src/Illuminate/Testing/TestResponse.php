@@ -166,6 +166,7 @@ class TestResponse implements ArrayAccess
     }
 
     /**
+<<<<<<< Updated upstream
      * Assert that the response is a server error.
      *
      * @return $this
@@ -181,6 +182,8 @@ class TestResponse implements ArrayAccess
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Assert that the response has the given status code.
      *
      * @param  int  $status
@@ -530,6 +533,7 @@ class TestResponse implements ArrayAccess
     }
 
     /**
+<<<<<<< Updated upstream
      * Assert that the given string matches the response content.
      *
      * @param  string  $value
@@ -543,6 +547,8 @@ class TestResponse implements ArrayAccess
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Assert that the given string or array of strings are contained within the response.
      *
      * @param  string|array  $value

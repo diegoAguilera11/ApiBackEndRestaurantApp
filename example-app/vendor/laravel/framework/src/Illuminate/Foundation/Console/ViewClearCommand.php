@@ -70,10 +70,13 @@ class ViewClearCommand extends Command
             throw new RuntimeException('View path not found.');
         }
 
+<<<<<<< Updated upstream
         $this->laravel['view.engine.resolver']
             ->resolve('blade')
             ->forgetCompiledOrNotExpired();
 
+=======
+>>>>>>> Stashed changes
         foreach ($this->files->glob("{$path}/*") as $view) {
             $this->files->delete($view);
         }

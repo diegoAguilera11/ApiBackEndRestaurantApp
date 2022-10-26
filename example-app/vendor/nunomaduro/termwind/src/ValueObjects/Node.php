@@ -110,7 +110,10 @@ final class Node
 
             if ($node->isEmpty()) {
                 $node = $node->node;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                 continue;
             }
 
@@ -136,7 +139,10 @@ final class Node
 
             if ($node->isEmpty()) {
                 $node = $node->node;
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                 continue;
             }
 

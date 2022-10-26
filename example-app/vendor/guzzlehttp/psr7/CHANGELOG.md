@@ -7,12 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+<<<<<<< Updated upstream
 ## 2.4.2 - 2022-10-25
 
 ### Fixed
 
 - Fixed erroneous behaviour when combining host and relative path
 
+=======
+>>>>>>> Stashed changes
 ## 2.4.1 - 2022-08-28
 
 ### Fixed
@@ -109,7 +112,11 @@ Identical to the RC release.
 ### Removed
 
 - PHP < 7.2 support
+<<<<<<< Updated upstream
 - All functions in the `GuzzleHttp\Psr7` namespace
+=======
+- All functions in the Guzzle\Psr7 namespace
+>>>>>>> Stashed changes
 
 ## 1.8.1 - 2021-03-21
 

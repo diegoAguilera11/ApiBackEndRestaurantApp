@@ -244,9 +244,21 @@ class IgnitionServiceProvider extends ServiceProvider
 
     protected function startRecorders(): void
     {
+<<<<<<< Updated upstream
         foreach ($this->app->config['ignition.recorders'] as $recorder) {
             $this->app->make($recorder)->start();
         }
+=======
+        // TODO: Ignition feature toggles
+
+        $this->app->make(DumpRecorder::class)->start();
+
+        $this->app->make(LogRecorder::class)->start();
+
+        $this->app->make(QueryRecorder::class)->start();
+
+        $this->app->make(JobRecorder::class)->start();
+>>>>>>> Stashed changes
     }
 
     protected function configureQueue(): void

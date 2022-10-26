@@ -47,7 +47,11 @@ final class Regex
      *
      * @return \GrahamCampbell\ResultType\Result<int,string>
      */
+<<<<<<< Updated upstream
     public static function occurrences(string $pattern, string $subject)
+=======
+    public static function occurences(string $pattern, string $subject)
+>>>>>>> Stashed changes
     {
         return self::pregAndWrap(static function (string $subject) use ($pattern) {
             return (int) @\preg_match_all($pattern, $subject);
@@ -102,11 +106,17 @@ final class Regex
         $result = $operation($subject);
 
         if (\preg_last_error() !== \PREG_NO_ERROR) {
+<<<<<<< Updated upstream
             /** @var \GrahamCampbell\ResultType\Result<V,string> */
             return Error::create(\preg_last_error_msg());
         }
 
         /** @var \GrahamCampbell\ResultType\Result<V,string> */
+=======
+            return Error::create(\preg_last_error_msg());
+        }
+
+>>>>>>> Stashed changes
         return Success::create($result);
     }
 }

@@ -1093,7 +1093,11 @@ class Route
             );
         }
 
+<<<<<<< Updated upstream
         if (method_exists($controllerClass, 'getMiddleware')) {
+=======
+        if (is_a($controllerClass, Controller::class, true)) {
+>>>>>>> Stashed changes
             return $this->controllerDispatcher()->getMiddleware(
                 $this->getController(), $controllerMethod
             );
@@ -1156,6 +1160,7 @@ class Route
     }
 
     /**
+<<<<<<< Updated upstream
      * Indicate that the route should not enforce scoping of multiple implicit Eloquent bindings.
      *
      * @return $this
@@ -1168,6 +1173,8 @@ class Route
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Determine if the route should enforce scoping of multiple implicit Eloquent bindings.
      *
      * @return bool
@@ -1178,6 +1185,7 @@ class Route
     }
 
     /**
+<<<<<<< Updated upstream
      * Determine if the route should prevent scoping of multiple implicit Eloquent bindings.
      *
      * @return bool
@@ -1188,6 +1196,8 @@ class Route
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Specify that the route should not allow concurrent requests from the same session.
      *
      * @param  int|null  $lockSeconds

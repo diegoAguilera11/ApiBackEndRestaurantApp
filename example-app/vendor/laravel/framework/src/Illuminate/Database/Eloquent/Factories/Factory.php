@@ -620,7 +620,11 @@ abstract class Factory
     /**
      * Provide model instances to use instead of any nested factory calls when creating relationships.
      *
+<<<<<<< Updated upstream
      * @param  \Illuminate\Database\Eloquent\Model|\Illuminate\Support\Collection|array  $model
+=======
+     * @param  \Illuminate\Eloquent\Model|\Illuminate\Support\Collection|array  $model
+>>>>>>> Stashed changes
      * @return static
      */
     public function recycle($model)

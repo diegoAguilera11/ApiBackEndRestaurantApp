@@ -419,8 +419,11 @@ class PendingCommand
 
         foreach ($this->test->expectedOutputSubstrings as $i => $text) {
             $mock->shouldReceive('doWrite')
+<<<<<<< Updated upstream
                 ->atLeast()
                 ->times(0)
+=======
+>>>>>>> Stashed changes
                 ->withArgs(fn ($output) => str_contains($output, $text))
                 ->andReturnUsing(function () use ($i) {
                     unset($this->test->expectedOutputSubstrings[$i]);
@@ -429,8 +432,11 @@ class PendingCommand
 
         foreach ($this->test->unexpectedOutput as $output => $displayed) {
             $mock->shouldReceive('doWrite')
+<<<<<<< Updated upstream
                 ->atLeast()
                 ->times(0)
+=======
+>>>>>>> Stashed changes
                 ->ordered()
                 ->with($output, Mockery::any())
                 ->andReturnUsing(function () use ($output) {
@@ -440,8 +446,11 @@ class PendingCommand
 
         foreach ($this->test->unexpectedOutputSubstrings as $text => $displayed) {
             $mock->shouldReceive('doWrite')
+<<<<<<< Updated upstream
                  ->atLeast()
                  ->times(0)
+=======
+>>>>>>> Stashed changes
                  ->withArgs(fn ($output) => str_contains($output, $text))
                  ->andReturnUsing(function () use ($text) {
                      $this->test->unexpectedOutputSubstrings[$text] = true;
