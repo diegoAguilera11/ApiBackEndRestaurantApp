@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
             $table->string('date', 255);
-            $table->integer('total', 255);
+            $table->integer('total');
             $table->integer('status');
-            //$table->enum('statustext, ['completed','in proces','calculating'])
-            $table-foreignid('tables_id');
+            //$table->enum('statustext', ['CALCULANDO', 'ENPROCESO', 'ENTREGADO']);
+            $table->foreignid('tables_id');
             $table->timestamps();
         });
     }
