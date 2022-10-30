@@ -18,9 +18,10 @@ return new class extends Migration
             $table->id('id');
             $table->integer('Unit_Price');
             $table->integer('quantity');
-            $table->string('Productcode', 15);
-            $table->foreign('Productcode')->references('code')->on('products');
+            $table->foreignid('products_id');
+            //->constrained('products');
             $table->foreignid('orders_id');
+            //->constrained('orders');
             $table->timestamps();
         });
     }

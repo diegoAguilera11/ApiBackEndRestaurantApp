@@ -43,10 +43,7 @@ trait ManagesTransactions
 
             try {
                 if ($this->transactions == 1) {
-<<<<<<< Updated upstream
                     $this->fireConnectionEvent('committing');
-=======
->>>>>>> Stashed changes
                     $this->getPdo()->commit();
                 }
 
@@ -192,12 +189,8 @@ trait ManagesTransactions
      */
     public function commit()
     {
-<<<<<<< Updated upstream
         if ($this->transactionLevel() == 1) {
             $this->fireConnectionEvent('committing');
-=======
-        if ($this->transactions == 1) {
->>>>>>> Stashed changes
             $this->getPdo()->commit();
         }
 

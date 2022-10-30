@@ -111,11 +111,7 @@ final class RepositoryBuilder
     }
 
     /**
-<<<<<<< Updated upstream
      * Determine if the given name if of an adapterclass.
-=======
-     * Determine if the given name if of an adapaterclass.
->>>>>>> Stashed changes
      *
      * @param string $name
      *

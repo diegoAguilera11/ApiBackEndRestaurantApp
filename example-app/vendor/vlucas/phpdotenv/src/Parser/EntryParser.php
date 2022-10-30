@@ -74,10 +74,7 @@ final class EntryParser
         })->getOrElse([$line, null]);
 
         if ($result[0] === '') {
-<<<<<<< Updated upstream
             /** @var \GrahamCampbell\ResultType\Result<array{string,string|null},string> */
-=======
->>>>>>> Stashed changes
             return Error::create(self::getErrorMessage('an unexpected equals', $line));
         }
 
@@ -106,17 +103,11 @@ final class EntryParser
         }
 
         if (!self::isValidName($name)) {
-<<<<<<< Updated upstream
             /** @var \GrahamCampbell\ResultType\Result<string,string> */
             return Error::create(self::getErrorMessage('an invalid name', $name));
         }
 
         /** @var \GrahamCampbell\ResultType\Result<string,string> */
-=======
-            return Error::create(self::getErrorMessage('an invalid name', $name));
-        }
-
->>>>>>> Stashed changes
         return Success::create($name);
     }
 
@@ -148,11 +139,7 @@ final class EntryParser
      */
     private static function isValidName(string $name)
     {
-<<<<<<< Updated upstream
         return Regex::matches('~(*UTF8)\A[\p{Ll}\p{Lu}\p{M}\p{N}_.]+\z~', $name)->success()->getOrElse(false);
-=======
-        return Regex::matches('~\A[a-zA-Z0-9_.]+\z~', $name)->success()->getOrElse(false);
->>>>>>> Stashed changes
     }
 
     /**
@@ -170,10 +157,7 @@ final class EntryParser
     private static function parseValue(string $value)
     {
         if (\trim($value) === '') {
-<<<<<<< Updated upstream
             /** @var \GrahamCampbell\ResultType\Result<\Dotenv\Parser\Value,string> */
-=======
->>>>>>> Stashed changes
             return Success::create(Value::blank());
         }
 
@@ -184,7 +168,6 @@ final class EntryParser
                 });
             });
         }, Success::create([Value::blank(), self::INITIAL_STATE]))->flatMap(static function (array $result) {
-<<<<<<< Updated upstream
             /** @psalm-suppress DocblockTypeContradiction */
             if (in_array($result[1], self::REJECT_STATES, true)) {
                 /** @var \GrahamCampbell\ResultType\Result<\Dotenv\Parser\Value,string> */
@@ -192,12 +175,6 @@ final class EntryParser
             }
 
             /** @var \GrahamCampbell\ResultType\Result<\Dotenv\Parser\Value,string> */
-=======
-            if (in_array($result[1], self::REJECT_STATES, true)) {
-                return Error::create('a missing closing quote');
-            }
-
->>>>>>> Stashed changes
             return Success::create($result[0]);
         })->mapError(static function (string $err) use ($value) {
             return self::getErrorMessage($err, $value);

@@ -39,7 +39,6 @@ class Content
     public $markdown;
 
     /**
-<<<<<<< Updated upstream
      * The pre-rendered HTML of the message.
      *
      * @var string|null
@@ -47,8 +46,6 @@ class Content
     public $htmlString;
 
     /**
-=======
->>>>>>> Stashed changes
      * The message's view data.
      *
      * @var array
@@ -63,28 +60,18 @@ class Content
      * @param  string|null  $text
      * @param  string|null  $markdown
      * @param  array  $with
-<<<<<<< Updated upstream
      * @param  string|null  $htmlString
      *
      * @named-arguments-supported
      */
     public function __construct(string $view = null, string $html = null, string $text = null, $markdown = null, array $with = [], string $htmlString = null)
-=======
-     *
-     * @named-arguments-supported
-     */
-    public function __construct(string $view = null, string $html = null, string $text = null, $markdown = null, array $with = [])
->>>>>>> Stashed changes
     {
         $this->view = $view;
         $this->html = $html;
         $this->text = $text;
         $this->markdown = $markdown;
         $this->with = $with;
-<<<<<<< Updated upstream
         $this->htmlString = $htmlString;
-=======
->>>>>>> Stashed changes
     }
 
     /**
@@ -138,7 +125,6 @@ class Content
     }
 
     /**
-<<<<<<< Updated upstream
      * Set the pre-rendered HTML for the message.
      *
      * @param  string  $html
@@ -152,8 +138,6 @@ class Content
     }
 
     /**
-=======
->>>>>>> Stashed changes
      * Add a piece of view data to the message.
      *
      * @param  string  $key

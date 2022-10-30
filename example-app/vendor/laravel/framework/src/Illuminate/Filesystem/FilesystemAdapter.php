@@ -24,10 +24,7 @@ use League\Flysystem\UnableToCreateDirectory;
 use League\Flysystem\UnableToDeleteDirectory;
 use League\Flysystem\UnableToDeleteFile;
 use League\Flysystem\UnableToMoveFile;
-<<<<<<< Updated upstream
 use League\Flysystem\UnableToProvideChecksum;
-=======
->>>>>>> Stashed changes
 use League\Flysystem\UnableToReadFile;
 use League\Flysystem\UnableToRetrieveMetadata;
 use League\Flysystem\UnableToSetVisibility;
@@ -559,7 +556,6 @@ class FilesystemAdapter implements CloudFilesystemContract
     }
 
     /**
-<<<<<<< Updated upstream
      * Get the checksum for a file.
      *
      * @return string|false
@@ -578,8 +574,6 @@ class FilesystemAdapter implements CloudFilesystemContract
     }
 
     /**
-=======
->>>>>>> Stashed changes
      * Get the mime-type of a given file.
      *
      * @param  string  $path

@@ -467,13 +467,10 @@ trait HasAttributes
         if ($this->exists &&
             ! $this->wasRecentlyCreated &&
             static::preventsAccessingMissingAttributes()) {
-<<<<<<< Updated upstream
             if (isset(static::$missingAttributeViolationCallback)) {
                 return call_user_func(static::$missingAttributeViolationCallback, $this, $key);
             }
 
-=======
->>>>>>> Stashed changes
             throw new MissingAttributeException($this, $key);
         }
 

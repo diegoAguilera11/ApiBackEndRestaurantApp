@@ -23,12 +23,8 @@ class EnvironmentDecryptCommand extends Command
                     {--cipher= : The encryption cipher}
                     {--env= : The environment to be decrypted}
                     {--force : Overwrite the existing environment file}
-<<<<<<< Updated upstream
                     {--path= : Path to write the decrypted file}
                     {--filename= : Filename of the decrypted file}';
-=======
-                    {--filename= : Where to write the decrypted file contents}';
->>>>>>> Stashed changes
 
     /**
      * The name of the console command.
@@ -87,7 +83,6 @@ class EnvironmentDecryptCommand extends Command
 
         $key = $this->parseKey($key);
 
-<<<<<<< Updated upstream
         $encryptedFile = ($this->option('env')
                     ? base_path('.env').'.'.$this->option('env')
                     : $this->laravel->environmentFilePath()).'.encrypted';
@@ -95,19 +90,6 @@ class EnvironmentDecryptCommand extends Command
         $outputFile = $this->outputFilePath();
 
         if (Str::endsWith($outputFile, '.encrypted')) {
-=======
-        $environmentFile = $this->option('env')
-                    ? base_path('.env').'.'.$this->option('env')
-                    : $this->laravel->environmentFilePath();
-
-        $encryptedFile = $environmentFile.'.encrypted';
-
-        $filename = $this->option('filename')
-                    ? base_path($this->option('filename'))
-                    : $environmentFile;
-
-        if (Str::endsWith($filename, '.encrypted')) {
->>>>>>> Stashed changes
             $this->components->error('Invalid filename.');
 
             return Command::FAILURE;
@@ -119,11 +101,7 @@ class EnvironmentDecryptCommand extends Command
             return Command::FAILURE;
         }
 
-<<<<<<< Updated upstream
         if ($this->files->exists($outputFile) && ! $this->option('force')) {
-=======
-        if ($this->files->exists($environmentFile) && ! $this->option('force')) {
->>>>>>> Stashed changes
             $this->components->error('Environment file already exists.');
 
             return Command::FAILURE;
@@ -133,11 +111,7 @@ class EnvironmentDecryptCommand extends Command
             $encrypter = new Encrypter($key, $cipher);
 
             $this->files->put(
-<<<<<<< Updated upstream
                 $outputFile,
-=======
-                $filename,
->>>>>>> Stashed changes
                 $encrypter->decrypt($this->files->get($encryptedFile))
             );
         } catch (Exception $e) {
@@ -148,11 +122,7 @@ class EnvironmentDecryptCommand extends Command
 
         $this->components->info('Environment successfully decrypted.');
 
-<<<<<<< Updated upstream
         $this->components->twoColumnDetail('Decrypted file', $outputFile);
-=======
-        $this->components->twoColumnDetail('Decrypted file', $filename);
->>>>>>> Stashed changes
 
         $this->newLine();
     }
@@ -171,7 +141,6 @@ class EnvironmentDecryptCommand extends Command
 
         return $key;
     }
-<<<<<<< Updated upstream
 
     /**
      * Get the output file path that should be used for the command.
@@ -187,6 +156,4 @@ class EnvironmentDecryptCommand extends Command
 
         return $path.$outputFile;
     }
-=======
->>>>>>> Stashed changes
 }

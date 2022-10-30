@@ -13,7 +13,6 @@ use ReflectionProperty;
 abstract class Component
 {
     /**
-<<<<<<< Updated upstream
      * The properties / methods that should not be exposed to the component.
      *
      * @var array
@@ -56,8 +55,6 @@ abstract class Component
     protected static $bladeViewCache = [];
 
     /**
-=======
->>>>>>> Stashed changes
      * The cache of public property names, keyed by class.
      *
      * @var array
@@ -72,7 +69,6 @@ abstract class Component
     protected static $methodCache = [];
 
     /**
-<<<<<<< Updated upstream
      * The cache of constructor parameters, keyed by class.
      *
      * @var array<class-string, array<int, string>>
@@ -128,34 +124,6 @@ abstract class Component
 
         return static::$constructorParametersCache[static::class];
     }
-=======
-     * The properties / methods that should not be exposed to the component.
-     *
-     * @var array
-     */
-    protected $except = [];
-
-    /**
-     * The component alias name.
-     *
-     * @var string
-     */
-    public $componentName;
-
-    /**
-     * The component attributes.
-     *
-     * @var \Illuminate\View\ComponentAttributeBag
-     */
-    public $attributes;
-
-    /**
-     * Get the view / view contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\Support\Htmlable|\Closure|string
-     */
-    abstract public function render();
->>>>>>> Stashed changes
 
     /**
      * Resolve the Blade view or view file that should be used when rendering the component.
@@ -175,15 +143,7 @@ abstract class Component
         }
 
         $resolver = function ($view) {
-<<<<<<< Updated upstream
             return $this->extractBladeViewFromString($view);
-=======
-            $factory = Container::getInstance()->make('view');
-
-            return strlen($view) <= PHP_MAXPATHLEN && $factory->exists($view)
-                        ? $view
-                        : $this->createBladeViewFromString($factory, $view);
->>>>>>> Stashed changes
         };
 
         return $view instanceof Closure ? function (array $data = []) use ($view, $resolver) {
@@ -195,7 +155,6 @@ abstract class Component
     /**
      * Create a Blade view with the raw component string content.
      *
-<<<<<<< Updated upstream
      * @param  string  $contents
      * @return string
      */
@@ -217,8 +176,6 @@ abstract class Component
     /**
      * Create a Blade view with the raw component string content.
      *
-=======
->>>>>>> Stashed changes
      * @param  \Illuminate\Contracts\View\Factory  $factory
      * @param  string  $contents
      * @return string
@@ -423,7 +380,6 @@ abstract class Component
     {
         return true;
     }
-<<<<<<< Updated upstream
 
     /**
      * Get the evaluated view contents for the given view.
@@ -499,6 +455,4 @@ abstract class Component
     {
         static::$componentsResolver = $resolver;
     }
-=======
->>>>>>> Stashed changes
 }

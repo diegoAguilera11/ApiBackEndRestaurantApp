@@ -1148,7 +1148,6 @@ class Mailable implements MailableContract, Renderable
     }
 
     /**
-<<<<<<< Updated upstream
      * Assert that the mailable is from the given address.
      *
      * @param  object|array|string  $address
@@ -1292,8 +1291,6 @@ class Mailable implements MailableContract, Renderable
     }
 
     /**
-=======
->>>>>>> Stashed changes
      * Assert that the given text is present in the HTML email body.
      *
      * @param  string  $string
@@ -1476,7 +1473,6 @@ class Mailable implements MailableContract, Renderable
     }
 
     /**
-<<<<<<< Updated upstream
      * Assert that the mailable has the given tag.
      *
      * @param  string  $tag
@@ -1510,8 +1506,6 @@ class Mailable implements MailableContract, Renderable
     }
 
     /**
-=======
->>>>>>> Stashed changes
      * Render the HTML and plain-text version of the mailable into views for assertions.
      *
      * @return array
@@ -1661,13 +1655,10 @@ class Mailable implements MailableContract, Renderable
             $this->markdown($content->markdown);
         }
 
-<<<<<<< Updated upstream
         if ($content->htmlString) {
             $this->html($content->htmlString);
         }
 
-=======
->>>>>>> Stashed changes
         foreach ($content->with as $key => $value) {
             $this->with($key, $value);
         }

@@ -64,11 +64,7 @@ trait CompilesComponents
     {
         return implode("\n", [
             '<?php if (isset($component)) { $__componentOriginal'.$hash.' = $component; } ?>',
-<<<<<<< Updated upstream
             '<?php $component = '.$component.'::resolve('.($data ?: '[]').' + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>',
-=======
-            '<?php $component = $__env->getContainer()->make('.Str::finish($component, '::class').', '.($data ?: '[]').' + (isset($attributes) ? (array) $attributes->getIterator() : [])); ?>',
->>>>>>> Stashed changes
             '<?php $component->withName('.$alias.'); ?>',
             '<?php if ($component->shouldRender()): ?>',
             '<?php $__env->startComponent($component->resolveView(), $component->data()); ?>',

@@ -4,15 +4,10 @@ declare(strict_types=1);
 
 namespace League\Flysystem;
 
-<<<<<<< Updated upstream
 use DateTimeInterface;
 use Throwable;
 
 use function method_exists;
-=======
-use Throwable;
-
->>>>>>> Stashed changes
 use function sprintf;
 
 class MountManager implements FilesystemOperator
@@ -257,7 +252,6 @@ class MountManager implements FilesystemOperator
         );
     }
 
-<<<<<<< Updated upstream
     public function publicUrl(string $path, array $config = []): string
     {
         /** @var FilesystemOperator $filesystem */
@@ -294,8 +288,6 @@ class MountManager implements FilesystemOperator
         return $filesystem->checksum($path, $config);
     }
 
-=======
->>>>>>> Stashed changes
     private function mountFilesystems(array $filesystems): void
     {
         foreach ($filesystems as $key => $filesystem) {

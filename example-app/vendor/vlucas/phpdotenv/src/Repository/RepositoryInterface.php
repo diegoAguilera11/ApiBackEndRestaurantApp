@@ -20,11 +20,8 @@ interface RepositoryInterface
      *
      * @param string $name
      *
-<<<<<<< Updated upstream
      * @throws \InvalidArgumentException
      *
-=======
->>>>>>> Stashed changes
      * @return string|null
      */
     public function get(string $name);
@@ -35,11 +32,8 @@ interface RepositoryInterface
      * @param string $name
      * @param string $value
      *
-<<<<<<< Updated upstream
      * @throws \InvalidArgumentException
      *
-=======
->>>>>>> Stashed changes
      * @return bool
      */
     public function set(string $name, string $value);
@@ -49,11 +43,8 @@ interface RepositoryInterface
      *
      * @param string $name
      *
-<<<<<<< Updated upstream
      * @throws \InvalidArgumentException
      *
-=======
->>>>>>> Stashed changes
      * @return bool
      */
     public function clear(string $name);

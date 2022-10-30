@@ -359,11 +359,7 @@ class Filesystem
 
         $relativeTarget = (new SymfonyFilesystem)->makePathRelative($target, dirname($link));
 
-<<<<<<< Updated upstream
         $this->link($this->isFile($target) ? rtrim($relativeTarget, '/') : $relativeTarget, $link);
-=======
-        $this->link($relativeTarget, $link);
->>>>>>> Stashed changes
     }
 
     /**

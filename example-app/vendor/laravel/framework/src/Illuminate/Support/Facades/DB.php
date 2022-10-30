@@ -34,10 +34,7 @@ namespace Illuminate\Support\Facades;
  * @method static void listen(\Closure $callback)
  * @method static void rollBack(int $toLevel = null)
  * @method static void setDefaultConnection(string $name)
-<<<<<<< Updated upstream
  * @method static void whenQueryingForLongerThan(\DateTimeInterface|\Carbon\CarbonInterval|float|int $threshold, callable $handler)
-=======
->>>>>>> Stashed changes
  *
  * @see \Illuminate\Database\DatabaseManager
  * @see \Illuminate\Database\Connection

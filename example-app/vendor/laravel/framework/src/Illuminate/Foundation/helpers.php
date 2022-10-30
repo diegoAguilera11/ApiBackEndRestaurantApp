@@ -711,11 +711,7 @@ if (! function_exists('rescue')) {
      *
      * @param  callable  $callback
      * @param  mixed  $rescue
-<<<<<<< Updated upstream
      * @param  bool|callable  $report
-=======
-     * @param  bool  $report
->>>>>>> Stashed changes
      * @return mixed
      */
     function rescue(callable $callback, $rescue = null, $report = true)
@@ -723,11 +719,7 @@ if (! function_exists('rescue')) {
         try {
             return $callback();
         } catch (Throwable $e) {
-<<<<<<< Updated upstream
             if (value($report, $e)) {
-=======
-            if ($report) {
->>>>>>> Stashed changes
                 report($e);
             }
 

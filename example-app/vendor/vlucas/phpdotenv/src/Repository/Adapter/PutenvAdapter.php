@@ -48,11 +48,7 @@ final class PutenvAdapter implements AdapterInterface
     /**
      * Read an environment variable, if it exists.
      *
-<<<<<<< Updated upstream
      * @param non-empty-string $name
-=======
-     * @param string $name
->>>>>>> Stashed changes
      *
      * @return \PhpOption\Option<string>
      */
@@ -67,13 +63,8 @@ final class PutenvAdapter implements AdapterInterface
     /**
      * Write to an environment variable, if possible.
      *
-<<<<<<< Updated upstream
      * @param non-empty-string $name
      * @param string           $value
-=======
-     * @param string $name
-     * @param string $value
->>>>>>> Stashed changes
      *
      * @return bool
      */
@@ -87,11 +78,7 @@ final class PutenvAdapter implements AdapterInterface
     /**
      * Delete an environment variable, if possible.
      *
-<<<<<<< Updated upstream
      * @param non-empty-string $name
-=======
-     * @param string $name
->>>>>>> Stashed changes
      *
      * @return bool
      */

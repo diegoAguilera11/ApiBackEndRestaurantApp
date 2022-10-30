@@ -110,10 +110,7 @@ class Builder implements BuilderContract
         'max',
         'min',
         'raw',
-<<<<<<< Updated upstream
         'rawValue',
-=======
->>>>>>> Stashed changes
         'sum',
         'toSql',
     ];

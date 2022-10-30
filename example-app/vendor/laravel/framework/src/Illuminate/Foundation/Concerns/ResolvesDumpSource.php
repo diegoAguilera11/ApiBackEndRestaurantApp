@@ -32,11 +32,7 @@ trait ResolvesDumpSource
     /**
      * The source resolver.
      *
-<<<<<<< Updated upstream
      * @var (callable(): (array{0: string, 1: string, 2: int|null}|null))|null|false
-=======
-     * @var (callable(): (array{0: string, 1: string, 2: int|null}|null))|null
->>>>>>> Stashed changes
      */
     protected static $dumpSourceResolver;
 
@@ -47,13 +43,10 @@ trait ResolvesDumpSource
      */
     public function resolveDumpSource()
     {
-<<<<<<< Updated upstream
         if (static::$dumpSourceResolver === false) {
             return null;
         }
 
-=======
->>>>>>> Stashed changes
         if (static::$dumpSourceResolver) {
             return call_user_func(static::$dumpSourceResolver);
         }
@@ -172,7 +165,6 @@ trait ResolvesDumpSource
     {
         static::$dumpSourceResolver = $callable;
     }
-<<<<<<< Updated upstream
 
     /**
      * Don't include the location / file of the dump in dumps.
@@ -183,6 +175,4 @@ trait ResolvesDumpSource
     {
         static::$dumpSourceResolver = false;
     }
-=======
->>>>>>> Stashed changes
 }
