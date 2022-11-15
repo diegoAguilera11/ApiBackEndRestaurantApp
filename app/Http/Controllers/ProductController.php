@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
+use App\Models\Category;
 use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
@@ -15,17 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::orderBy('name')->get();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return Product::orderBy('categories_id')->get();
     }
 
     /**
@@ -39,12 +30,13 @@ class ProductController extends Controller
         return Product::create($request->all());
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
+    public function searchCategory($name)
+    {
+        $category = Category::where('name', $name)->get()->first();
+
+        return $category;
+    }
+
     public function show(Product $product)
     {
         return $product;
@@ -70,7 +62,9 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
+
         $product->update($request->all());
+        return $product;
     }
 
     /**

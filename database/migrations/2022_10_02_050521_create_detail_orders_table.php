@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 return new class extends Migration
 {
     /**
@@ -15,6 +16,10 @@ return new class extends Migration
     {
         Schema::create('detail_orders', function (Blueprint $table) {
             $table->id();
+            $table->integer('unit_price');
+            $table->integer('quantity');
+            $table->foreignid('products_id');
+            $table->foreignid('orders_id');
             $table->timestamps();
         });
     }

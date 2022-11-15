@@ -15,7 +15,7 @@ class TableController extends Controller
      */
     public function index()
     {
-        //
+        return Table::orderBy('id')->get();
     }
 
     /**
@@ -36,7 +36,7 @@ class TableController extends Controller
      */
     public function store(StoreTableRequest $request)
     {
-        //
+        return Table::create($request->all());
     }
 
     /**

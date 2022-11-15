@@ -13,7 +13,7 @@ class UpdateDetailOrderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class UpdateDetailOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'unit_price' => ['required', 'numeric'],
+            'quantity' => ['required', 'numeric'],
+            'orders_id' => 'required',
+            'products_id' => 'required'
         ];
     }
 }
