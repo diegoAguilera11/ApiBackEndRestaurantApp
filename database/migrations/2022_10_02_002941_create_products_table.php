@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('description', 255);
             $table->integer('price');
-            $table->foreignid('category_id');
-            // $table->binary('image');
+            $table->foreignid('categories_id');
+            $table->string('image');
             $table->timestamps();
         });
     }

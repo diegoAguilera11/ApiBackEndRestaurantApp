@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TableController;
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::resource('products', ProductController::class);
+
+Route::resource('categorys', CategoryController::class);
 
 Route::resource('orders', OrderController::class);
 
