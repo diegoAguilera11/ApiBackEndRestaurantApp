@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
+use App\Models\Order;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +20,8 @@ use App\Http\Controllers\HomeController;
 //     return view('welcome');
 // });
 
-Route::get('/',  HomeController::class);
+Route::get('/',  HomeController::class)->name('home');
+Route::get('/administrador-pedidos',  [OrderController::class, 'indexWeb'])->name('administrador.index');
+Route::get('/administrador-pedidos/{status}',  [OrderController::class, 'searchStatus'])->name('administrador.search');
+Route::post('/administrador-timer/{order}', [OrderController::class, 'changeTimer'])->name('administrador.timer');
+Route::post('/administrador-status/{order}', [OrderController::class, 'changeStatus'])->name('administrador.status');

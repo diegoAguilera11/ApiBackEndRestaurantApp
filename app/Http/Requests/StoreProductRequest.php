@@ -29,7 +29,7 @@ class StoreProductRequest extends FormRequest
             'name' => 'required',
             'description' => 'required',
             'price' => ['required', 'numeric'],
-            'categories_id' => 'required',
+            'category_id' => 'required',
             'image' => 'required',
 
         ];

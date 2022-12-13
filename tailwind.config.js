@@ -6,8 +6,10 @@ module.exports = {
     ],
     theme: {
         fontFamily: {
-            'Lobster': ['Lobster', 'cursive']
+            'Lobster': ['Lobster', 'cursive'],
+            'Merriweather Sans': ['Merriweather Sans', 'sans-serif']
+
         }
     },
-    plugins: [],
+    plugins: []
 }
