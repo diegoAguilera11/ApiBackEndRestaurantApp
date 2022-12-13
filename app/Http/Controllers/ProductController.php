@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Http\Requests\StoreProductRequest;
-use App\Models\Category;
 use App\Http\Requests\UpdateProductRequest;
+use Validator;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::orderBy('categories_id')->get();
+        return Product::orderBy('category_id')->get();
     }
 
     /**
@@ -25,9 +25,41 @@ class ProductController extends Controller
      * @param  \App\Http\Requests\StoreProductRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request)
     {
-        return Product::create($request->all());
+
+        $validator = Validator::make($request->all(), [
+            'code' => ['required', 'unique:products'],
+            'name' => ['required', 'min:3', 'max:25'],
+            'description' => ['required', 'min:10', 'max:200'],
+            'price' => ['required', 'numeric', 'min:1'],
+            'stock' => ['required', 'numeric', 'min:1'],
+            'category_id' => 'required',
+            'image' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => [$validator->errors()],
+                'status' => 201,
+
+            ]);
+        }
+
+        $product = Product::create([
+            'code' => $request->code,
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'category_id' => $request->category_id,
+            'image' => $request->image
+        ]);
+
+        return response()->json([
+            'status' => 200,
+            'product' => $product
+        ]);
     }
 
     public function searchCategory($name)
@@ -60,11 +92,42 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(Request $request, $id)
     {
 
-        $product->update($request->all());
-        return $product;
+        $producto = Product::find($id);
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'description' => 'required',
+            'price' => ['required', 'numeric', 'min:1'],
+            'stock' => ['required', 'numeric', 'min:1'],
+            'category_id' => 'required',
+            'image' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors(),
+                'status' => 201,
+
+            ]);
+        }
+
+        if ($producto) {
+            $producto->name = $request->name;
+            $producto->description = $request->description;
+            $producto->price = $request->price;
+            $producto->stock += $request->stock;
+            $producto->category_id = $request->category_id;
+            $producto->image = $request->image;
+            $producto->save();
+
+            return response()->json([
+                'status' => 202,
+                'product' => $producto
+            ]);
+        }
     }
 
     /**
